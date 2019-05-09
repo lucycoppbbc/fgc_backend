@@ -46,12 +46,12 @@ functions:
 
 # Create our resources with separate CloudFormation templates
 resources:
+  # API Gateway Errors
+  - ${file(resources/api-gateway-errors.yml)}
   # DynamoDB
   - ${file(resources/dynamodb-table.yml)}
   # S3
   - ${file(resources/s3-bucket.yml)}
-  # Cognito
-  - ${file(resources/cognito-user-pool.yml)}
     # Cognito
   - ${file(resources/cognito-user-pool.yml)}
   - ${file(resources/cognito-identity-pool.yml)}
