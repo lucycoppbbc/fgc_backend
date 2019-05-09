@@ -10,7 +10,7 @@ custom:
 
   stage: ${opt:stage, self:provider.stage}
 
-  tableName: ${self:custom.stage}-notes
+  tableName: ${self:custom.stage}-products
 
   tableThroughputs:
     prod: 5
@@ -32,7 +32,6 @@ provider:
 
   environment:
     tableName: ${self:custom.tableName}
-    stripeSecretKey: ${self:custom.environment.stripeSecretKey}
 
 
   iamRoleStatements:
@@ -52,7 +51,13 @@ provider:
 functions:
 
 
+# Create our resources with separate CloudFormation templates
 resources:
+  # DynamoDB
+  - ${file(resources/dynamodb-table.yml)}
+    # S3
+  - ${file(resources/s3-bucket.yml)}
+
 
 
 
