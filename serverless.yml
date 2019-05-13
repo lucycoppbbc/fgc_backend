@@ -40,9 +40,17 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource:
-        - "Fn::GetAtt": [NotesTable, Arn]
+        - "Fn::GetAtt": [ProductsTable, Arn]
 
 functions:
+  create:
+    handler: create.main
+    events:
+      - http:
+          path: products
+          method: post
+          cors: true
+          authorizer: aws_iam
 
 # Create our resources with separate CloudFormation templates
 resources:
