@@ -1,0 +1,9 @@
+{
+    "body": "{\"name\":\"hello world\", \"description\":\"example description\",\"price\":\"2.99\",\"stock\":\"10\",\"reserved\":\"1\",\"attachment\":\"hello.jpg\"}",
+    "requestContext": {
+      "identity": {
+        "cognitoIdentityId": "USER-SUB-1234"
+      }
+    }
+  }
+  

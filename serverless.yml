@@ -1,4 +1,4 @@
-service: fgc_backend
+service: fgc-backend
 
 plugins:
   - serverless-webpack
@@ -40,7 +40,7 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource:
-        - "Fn::GetAtt": [ProductsTable, Arn]
+        - "Fn::GetAtt": [ NotesTable, Arn ]
 
 functions:
   create:
@@ -51,6 +51,17 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
+  get:
+    handler: get.main
+    events: 
+      - http:
+        path: products/{id}
+        method: get
+        cors: true
+        authorizer: aws_iam
+  fetch-all-products:
+    handler: fetchA.main
+    eve
 
 # Create our resources with separate CloudFormation templates
 resources:
