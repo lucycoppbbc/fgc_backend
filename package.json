@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "get-event-mock": "serverless invoke local --function get --path mocks/get-event.json",
+    "create-event-mock": "serverless invoke local --function create --path mocks/create-event.json",
+    "delete-event-mock": "serverless invoke local --function delete --path mocks/delete-event.json",
+    "update-event-mock": "serverless invoke local --function update --path mocks/update-event.json",
+    "list-event-mock": "serverless invoke local --function list --path mocks/list-event.json"
   },
   "repository": {
     "type": "git",

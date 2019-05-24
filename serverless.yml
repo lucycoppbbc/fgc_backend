@@ -59,9 +59,37 @@ functions:
         method: get
         cors: true
         authorizer: aws_iam
-  fetch-all-products:
-    handler: fetchA.main
-    eve
+
+  list:
+    handler: list.main
+    events:
+      - http:
+          path: products
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  update:
+    handler: update.main
+    events:
+      - http:
+          path: products/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  delete:
+    handler: delete.main
+    events:
+      - http:
+          path: products/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+
+
+
+
 
 # Create our resources with separate CloudFormation templates
 resources:

@@ -4,13 +4,17 @@ import { success, failure } from "./libs/response-lib";
 export async function main(event, context) {
   const params = {
     TableName: process.env.tableName,
+    KeyConditionExpression: "userId = :userId",
+    ExpressionAttributeValues: {
+      ":userId": event.requestContext.identity.cognitoIdentityId
+    }
   };
 
   try {
-    const result = await call(params, onScan);
-    // Return the matching list of items in response body
+    const result = await call("query", params);
     return success(result.Items);
   } catch (e) {
+      console.log(e)
     return failure({ status: false });
   }
 }
