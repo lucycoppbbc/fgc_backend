@@ -55,10 +55,10 @@ functions:
     handler: get.main
     events: 
       - http:
-        path: products/{id}
-        method: get
-        cors: true
-        authorizer: aws_iam
+          path: products/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
 
   list:
     handler: list.main

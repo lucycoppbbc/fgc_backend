@@ -4,3 +4,7 @@ node_modules/*
 package-lock.json
 env.yml
 .webpack/*
+.serverless/*
+.serverless/cloudformation-template-update-stack.json
+*.zip
+.serverless/serverless-state.json
